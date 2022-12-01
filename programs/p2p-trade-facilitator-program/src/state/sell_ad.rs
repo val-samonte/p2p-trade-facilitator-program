@@ -20,10 +20,10 @@ pub struct SellAd {
     /// Amount assigned to this posted ad in lamports (8)
     pub available: u64,
 
-    /// Minimum purchase in peso * lamports (8)
+    /// Minimum purchase in peso * 100 (8)
     pub min_limit: u64,
 
-    /// Maximum purchase in peso * lamports (8)
+    /// Maximum purchase in peso * 100 (8)
     pub max_limit: u64,
 
     /// Binary flags indicating the transfer methods available for this post (4)

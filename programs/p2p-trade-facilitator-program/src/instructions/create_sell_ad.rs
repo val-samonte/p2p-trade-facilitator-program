@@ -1,4 +1,4 @@
-use anchor_lang::{prelude::*, system_program};
+use anchor_lang::{prelude::*, solana_program::native_token::LAMPORTS_PER_SOL, system_program};
 
 use crate::{state::SellAd, CustomError};
 
@@ -51,7 +51,12 @@ pub fn create_sell_ad_handler(
     sell_ad.authority = authority.key();
     sell_ad.device = device.key();
 
-    let available_in_peso = params.available.checked_mul(params.unit_price).unwrap();
+    let available_in_peso = params
+        .available
+        .checked_mul(params.unit_price)
+        .unwrap()
+        .checked_div(LAMPORTS_PER_SOL / 100)
+        .unwrap();
 
     if available_in_peso > params.max_limit || available_in_peso < params.min_limit {
         return Err(error!(CustomError::AmountNotWithinLimit));
