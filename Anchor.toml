@@ -2,14 +2,14 @@
 seeds = false
 skip-lint = false
 
-[programs.localnet]
+[programs.devnet]
 p2p_trade_facilitator_program = "FE7D2xK9qJQAYGDDXYTriLxv5f1TL5NEKyw9bVFnuZtt"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/home/val/.config/solana/id.json"
 
 [scripts]

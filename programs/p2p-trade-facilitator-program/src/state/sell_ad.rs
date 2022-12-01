@@ -9,7 +9,7 @@ pub struct SellAd {
     pub id: Pubkey,
 
     /// The owner of the ad (32)
-    pub owner: Pubkey,
+    pub authority: Pubkey,
 
     /// The id of the device on which this ad is created (32)
     pub device: Pubkey,
@@ -20,10 +20,10 @@ pub struct SellAd {
     /// Amount assigned to this posted ad in lamports (8)
     pub available: u64,
 
-    /// Minimum purchase in peso (8)
+    /// Minimum purchase in peso * lamports (8)
     pub min_limit: u64,
 
-    /// Maximum purchase in peso (8)
+    /// Maximum purchase in peso * lamports (8)
     pub max_limit: u64,
 
     /// Binary flags indicating the transfer methods available for this post (4)
